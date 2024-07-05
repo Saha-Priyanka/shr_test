@@ -71,7 +71,7 @@ data "azurerm_subnet" "subnet_pep" {
 # }
 
 data "azurerm_subnet" "subnet_asp"  {
-  name                 = "snet-asp-${local.full_name}-02"
+  name                 = "snet-asp-layoutfast-dev-02"
   resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
   virtual_network_name = data.azurerm_virtual_network.vnet.name
 }
@@ -94,7 +94,7 @@ data "azurerm_subnet" "subnet_asp"  {
 # }
 
 data "azurerm_subnet" "subnet_fsp"  {
-  name                 = "snet-fsp-${local.full_name}-03"
+  name                 = "snet-fsp-layoutfast-dev-03"
   resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
   virtual_network_name = data.azurerm_virtual_network.vnet.name
 }
