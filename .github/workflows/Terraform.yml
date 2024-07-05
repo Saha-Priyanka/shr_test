@@ -87,18 +87,18 @@ jobs:
        with:
         token: ${{secrets.GITHUB_TOKEN}}
 
-     - name: List Files in Terraform Directory
-       run: |
-        ls -R ./terraform
+     # - name: List Files in Terraform Directory
+     #   run: |
+     #    ls -R ./terraform
 
-     - name: Print Current Working Directory
-       run: |
-        pwd
-     - name: Debug Secrets
-       run: |
-        echo "Storage Account Name: ${{ secrets.STORAGE_ACCOUNT_NAME }}"
-        echo "Container Name: ${{ secrets.CONTAINER_NAME }}"
-        echo "Key: ${{ secrets.KEY }}"
+     # - name: Print Current Working Directory
+     #   run: |
+     #    pwd
+     # - name: Debug Secrets
+     #   run: |
+     #    echo "Storage Account Name: ${{ secrets.STORAGE_ACCOUNT_NAME }}"
+     #    echo "Container Name: ${{ secrets.CONTAINER_NAME }}"
+     #    echo "Key: ${{ secrets.KEY }}"
     #- name: Setup Terraform
     #  uses: hashicorp//terraform-github-actions@master
     #  with:
