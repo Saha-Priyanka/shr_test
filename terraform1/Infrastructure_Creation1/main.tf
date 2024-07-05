@@ -19,7 +19,7 @@ locals {
 # resource group modularaisation
 module "azurerm_resource_group" {
   source              = "./modules/resource_group"
-  resource_group_name = "rg-tfstatefile-shr-dev-06"
+  resource_group_name = "rg-tfstatefile-shr-dev-07"
   location            = "France Central"
 }
 
@@ -159,7 +159,7 @@ module "key_vault" {
 module "azurerm_storage_account" {
   source                   = "./modules/storage_account"
   depends_on               = [data.azurerm_subnet.subnet_pep]
-  storage_account_name     = "sttfstateshrdev06"
+  storage_account_name     = "sttfstateshrdev07"
   resource_group_name      = module.azurerm_resource_group.resource_group_name
   location                 = module.azurerm_resource_group.resource_group_location
   account_replication_type = "LRS"
