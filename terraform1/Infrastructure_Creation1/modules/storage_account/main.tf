@@ -47,7 +47,9 @@ resource "azurerm_storage_account" "storage" {
 
 
 resource "azurerm_storage_container" "container" {
-  name                  = "tfstate-shr-dev-03"
+depends_on = [ azurerm_storage_account.storage ]
+  name                  = "tfstate-shr-dev-05"
   storage_account_name  = azurerm_storage_account.storage.name
   container_access_type = "private"
+
 }
