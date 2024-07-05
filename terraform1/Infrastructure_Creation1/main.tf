@@ -159,7 +159,7 @@ module "key_vault" {
 module "azurerm_storage_account" {
   source                   = "./modules/storage_account"
   depends_on               = [data.azurerm_subnet.subnet_pep]
-  storage_account_name     = "sttfstateshrdev03"
+  storage_account_name     = "sttfstateshrdev05"
   resource_group_name      = module.azurerm_resource_group.resource_group_name
   location                 = module.azurerm_resource_group.resource_group_location
   account_replication_type = "LRS"
