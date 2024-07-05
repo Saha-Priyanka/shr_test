@@ -19,7 +19,7 @@ locals {
 # resource group modularaisation
 module "azurerm_resource_group" {
   source              = "./modules/resource_group"
-  resource_group_name = "rg-tfstatefile-shr-dev-01"
+  resource_group_name = "rg-tfstatefile-shr-dev-05"
   location            = "France Central"
 }
 
