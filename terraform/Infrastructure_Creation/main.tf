@@ -16,16 +16,16 @@ locals {
 
 #_________________________________________________________________________________________________________________________________________________________________
 
-# # resource group modularaisation
-# module "azurerm_resource_group" {
-#   source              = "./modules/resource_group"
-#   resource_group_name = "rg-${local.full_name}-01"
-#   location            = "France Central"
-# }
+ # resource group modularaisation
+ module "azurerm_resource_group" {
+   source              = "./modules/resource_group"
+  resource_group_name = "rg-github-shr-01"
+   location            = "France Central"
+ }
 
-data "azurerm_resource_group" "rg" {
-  name = "rg-github-shr-01"
-}
+#data "azurerm_resource_group" "rg" {
+  #name = "rg-github-shr-01"
+#}
 
 #_________________________________________________________________________________________________________________________________________________________________
 #We are going to use already existing virtual network, we got it with the subscription itself, so we are using this as data.
@@ -127,10 +127,10 @@ module "key_vault" {
   source                      = "./modules/Key_vault"
   depends_on                  = [data.azurerm_subnet.subnet_pep]
   key_vault_name              = "kv-github-shr-01"
-  # resource_group_name         = module.azurerm_resource_group.resource_group_name
-  # location                    = module.azurerm_resource_group.resource_group_location 
-  resource_group_name =  data.azurerm_resource_group.rg.name 
-  location = data.azurerm_resource_group.rg.location
+   resource_group_name         = module.azurerm_resource_group.resource_group_name
+  location                    = module.azurerm_resource_group.resource_group_location 
+ # resource_group_name =  data.azurerm_resource_group.rg.name 
+ # location = data.azurerm_resource_group.rg.location
   user_assigned_identity_name = "${local.full_name}-mgdid-kv-01"
   soft_delete_retention_days  = "90"
   sku_name                    = "standard"
