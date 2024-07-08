@@ -1,8 +1,8 @@
 name: 'terraform'
 on: 
   push:
-  #  branches: none
-    branches: [ "main" ]
+    branches: none
+  #  branches: [ "main" ]
   pull_request:  
 
 permissions:
