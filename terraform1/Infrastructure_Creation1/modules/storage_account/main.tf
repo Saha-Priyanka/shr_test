@@ -116,15 +116,15 @@ resource "null_resource" "previous" {
 }
 
 
-resource "time_sleep" "wait_960_sec" {
+resource "time_sleep" "wait_1200_sec" {
   depends_on = [null_resource.previous]
 
-  create_duration = "960s"
+  create_duration = "1200s"
 }
 
-# This resource will create (at least) 960 seconds after null_resource.previous
+# This resource will create (at least) 1200 seconds after null_resource.previous
 resource "null_resource" "next" {
-  depends_on = [time_sleep.wait_960_sec]
+  depends_on = [time_sleep.wait_1200_sec]
 }
 
 
