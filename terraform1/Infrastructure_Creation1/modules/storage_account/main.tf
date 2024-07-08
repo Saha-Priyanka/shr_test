@@ -95,7 +95,8 @@ resource "azurerm_storage_account" "storage" {
 }
 */
  resource "azurerm_private_endpoint" "endpoint" {
-   depends_on = [ azurerm_storage_container.container ]
+
+depends_on = [ data.azurerm_storage_account.storage ]
   name                = var.endpoint_name
    location            = var.location
    resource_group_name = var.resource_group_name
@@ -115,7 +116,7 @@ data "azurerm_storage_account" "storage" {
  
 }
 resource "azurerm_storage_container" "container" {
-depends_on = [ data.azurerm_storage_account.storage ]
+   depends_on = [ azurerm_private_endpoint.endpoint ]
   name                  = "tfstate-shr-dev-09"
   storage_account_name  = data.azurerm_storage_account.storage.name
   container_access_type = "private"
