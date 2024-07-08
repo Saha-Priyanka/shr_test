@@ -58,7 +58,7 @@ depends_on = [ azurerm_storage_account.storage ]
 
 
 
-
+/*
 
 
 
@@ -125,12 +125,9 @@ resource "null_resource" "next" {
   depends_on = [time_sleep.wait_120_sec]
 }
 
+*/
+
 /*
-data "azurerm_storage_account" "storage" {
-  name                     = "sttfstateshrdev09"
-  resource_group_name      = "rg-tfstatefile-shr-dev-09"
- 
-}
 resource "azurerm_storage_container" "container" {
   # depends_on = [ time_sleep.wait_120_sec ]
   name                  = "tfstate-shr-dev-09"
@@ -141,10 +138,18 @@ resource "azurerm_storage_container" "container" {
 
 
 
+data "azurerm_storage_account" "storage" {
+  name                     = "sttfstateshrdev11"
+  resource_group_name      = "rg-tfstatefile-shr-dev-11"
+ 
+}
+
+
+
 resource "azurerm_storage_container" "container" {
-   depends_on = [ time_sleep.wait_120_sec ]
+  # depends_on = [ time_sleep.wait_120_sec ]
   name                  = "tfstate-shr-dev-11"
-  storage_account_name  = azurerm_storage_account.storage.name
+  storage_account_name  = data.azurerm_storage_account.storage.name
   container_access_type = "private"
 
 }
