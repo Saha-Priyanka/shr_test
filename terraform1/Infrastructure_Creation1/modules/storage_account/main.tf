@@ -71,7 +71,7 @@ depends_on = [ azurerm_storage_account.storage ]
     name = var.snet_name
    resource_group_name = data.azurerm_virtual_network.vnet.resource_group_name
    virtual_network_name = data.azurerm_virtual_network.vnet.name
- }
+ }/*
 resource "azurerm_storage_account" "storage" {
   name                     = var.storage_account_name
   resource_group_name      = var.resource_group_name
@@ -93,7 +93,7 @@ resource "azurerm_storage_account" "storage" {
        ip_rules = ["136.226.254.83"]
    }
 }
-
+*/
  resource "azurerm_private_endpoint" "endpoint" {
    depends_on = [ azurerm_storage_container.container ]
   name                = var.endpoint_name
@@ -103,17 +103,21 @@ resource "azurerm_storage_account" "storage" {
 
    private_service_connection {
      name                           = var.service_connection_name
-     private_connection_resource_id = azurerm_storage_account.storage.id 
+     private_connection_resource_id = data.azurerm_storage_account.storage.id 
      subresource_names              = ["blob"]
      is_manual_connection           = false
    }
  }
 
-
+data "azurerm_storage_account" "storage" {
+  name                     = "sttfstateshrdev09"
+  resource_group_name      = "rg-tfstatefile-shr-dev-09"
+ 
+}
 resource "azurerm_storage_container" "container" {
-depends_on = [ azurerm_storage_account.storage ]
+depends_on = [ data.azurerm_storage_account.storage ]
   name                  = "tfstate-shr-dev-09"
-  storage_account_name  = azurerm_storage_account.storage.name
+  storage_account_name  = data.azurerm_storage_account.storage.name
   container_access_type = "private"
 
 }
