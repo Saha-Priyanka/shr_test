@@ -11,7 +11,8 @@ permissions:
 jobs:
   terraform1: 
     name: 'terraform1'
-    runs-on: self-hosted
+   # runs-on: self-hosted
+    runs-on: windows-latest
     env:
       ARM_CLIENT_ID: "${{ secrets.AZURE_AD_CLIENT_ID }}"
       ARM_SUBSCRIPTION_ID: "${{ secrets.AZURE_AD_SUBSCRIPTION_ID }}"
