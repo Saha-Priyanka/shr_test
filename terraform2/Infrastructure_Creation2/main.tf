@@ -74,7 +74,7 @@ data "azurerm_subnet" "subnet_pep" {
 
 
 #storage_account
-module "azurerm_storage_account" {
+module "azurerm_container" {
 source                   = "./modules/container"
  container_name = "tfstate-shr-dev-18"
   storage_account_name     = "sttfstateshrdev18"
