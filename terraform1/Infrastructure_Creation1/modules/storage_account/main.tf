@@ -115,11 +115,19 @@ data "azurerm_storage_account" "storage" {
   name                     = "sttfstateshrdev09"
   resource_group_name      = "rg-tfstatefile-shr-dev-09"
  
-}
+}/*
 resource "azurerm_storage_container" "container" {
   # depends_on = [ azurerm_private_endpoint.endpoint ]
   name                  = "tfstate-shr-dev-09"
   storage_account_name  = data.azurerm_storage_account.storage.name
   container_access_type = "private"
 
+}*/
+resource "azurerm_storage_container" "container" {
+  # depends_on = [ azurerm_private_endpoint.endpoint ]
+  name                  = "tfstate-shr-dev-10"
+  storage_account_name  = data.azurerm_storage_account.storage.name
+  container_access_type = "private"
+
 }
+
