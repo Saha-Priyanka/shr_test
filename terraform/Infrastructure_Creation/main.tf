@@ -135,7 +135,7 @@ module "azurerm_service_plan" {
 module "key_vault" {
   source                      = "./modules/Key_vault"
   depends_on                  = [data.azurerm_subnet.subnet_pep]
-  key_vault_name              = "kv-github-shr-02"
+  key_vault_name              = "kv-github-shr-04"
    resource_group_name         = module.azurerm_resource_group.resource_group_name
   location                    = module.azurerm_resource_group.resource_group_location 
  # resource_group_name =  data.azurerm_resource_group.rg.name 
