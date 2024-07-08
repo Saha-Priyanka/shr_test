@@ -58,7 +58,6 @@ depends_on = [ azurerm_storage_account.storage ]
 
 
 
-/*
 
 
 
@@ -125,7 +124,7 @@ resource "null_resource" "next" {
   depends_on = [time_sleep.wait_120_sec]
 }
 
-*/
+
 
 /*
 resource "azurerm_storage_container" "container" {
@@ -134,7 +133,7 @@ resource "azurerm_storage_container" "container" {
   storage_account_name  = data.azurerm_storage_account.storage.name
   container_access_type = "private"
 
-}*/
+}
 
 
 
@@ -153,4 +152,4 @@ resource "azurerm_storage_container" "container" {
   container_access_type = "private"
 
 }
-
+*/
