@@ -139,7 +139,7 @@ resource "azurerm_storage_container" "container" {
 
 
 data "azurerm_storage_account" "storage" {
-  name                     = "sttfstateshrdev16"
+  name                     = "sttfstateshrdev17"
   resource_group_name      = "rg-tfstatefile-shr-dev-14"
  
 }
@@ -147,7 +147,7 @@ data "azurerm_storage_account" "storage" {
 
 
 resource "azurerm_storage_container" "container" {
-  # depends_on = [ time_sleep.wait_120_sec ]
+  # depends_on = [ time_sleep.wait_900_sec ]
   name                  = "tfstate-shr-dev-14"
   storage_account_name  = data.azurerm_storage_account.storage.name
   container_access_type = "private"
