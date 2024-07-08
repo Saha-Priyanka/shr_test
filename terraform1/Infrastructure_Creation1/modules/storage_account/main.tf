@@ -80,7 +80,7 @@ resource "azurerm_storage_account" "storage" {
   account_replication_type = var.account_replication_type
   account_kind             = var.account_kind
    enable_https_traffic_only       = true
-   public_network_access_enabled   = false
+   #public_network_access_enabled   = false
    cross_tenant_replication_enabled = false
  allow_nested_items_to_be_public = false
 
@@ -112,7 +112,7 @@ resource "azurerm_storage_account" "storage" {
 
 resource "azurerm_storage_container" "container" {
 depends_on = [ azurerm_storage_account.storage ]
-  name                  = "tfstate-shr-dev-08"
+  name                  = "tfstate-shr-dev-09"
   storage_account_name  = azurerm_storage_account.storage.name
   container_access_type = "private"
 
