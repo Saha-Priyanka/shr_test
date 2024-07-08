@@ -26,7 +26,7 @@ module "azurerm_resource_group" {
 */
 
 data "azurerm_resource_group" "rg" {
-   name     = "rg-tfstatefile-shr-dev-11"
+   name     = "rg-tfstatefile-shr-dev-12"
   #  location = "France Central"
 }
 
