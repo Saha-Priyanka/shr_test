@@ -73,15 +73,15 @@ data "azurerm_subnet" "subnet_pep" {
 module "azurerm_storage_account" {
   source                   = "./modules/storage_account"
   depends_on               = [data.azurerm_subnet.subnet_pep]
-  storage_account_name     = "sttfstateshrdev18"
+  storage_account_name     = "sttfstateshrdev19"
 resource_group_name      = module.azurerm_resource_group.resource_group_name
 location                 = module.azurerm_resource_group.resource_group_location
 # resource_group_name      = data.azurerm_resource_group.rg.name
  #location                 = data.azurerm_resource_group.rg.location
   account_replication_type = "LRS"
   account_kind             = "StorageV2" #change--storage
-  endpoint_name            = "pvtep-st-${local.full_name}-18"
-  service_connection_name  = "pvtsc-st-${local.full_name}-18"
+  endpoint_name            = "pvtep-st-${local.full_name}-19"
+  service_connection_name  = "pvtsc-st-${local.full_name}-19"
   vnet_name                = data.azurerm_virtual_network.vnet.name
   resource_group_name1     = data.azurerm_virtual_network.vnet.resource_group_name
   snet_name                = data.azurerm_subnet.subnet_pep.name
