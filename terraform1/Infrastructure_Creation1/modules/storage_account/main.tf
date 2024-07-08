@@ -111,7 +111,10 @@ depends_on = [ azurerm_storage_account.storage ]
  }
 
 # This resource will destroy (potentially immediately) after null_resource.next
-resource "null_resource" "previous" {}
+resource "null_resource" "previous" {
+  depends_on = [ azurerm_private_endpoint.endpoint]
+}
+
 
 resource "time_sleep" "wait_120_sec" {
   depends_on = [null_resource.previous]
