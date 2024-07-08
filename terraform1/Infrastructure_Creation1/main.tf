@@ -17,20 +17,20 @@ locals {
 #_________________________________________________________________________________________________________________________________________________________________
 
 # resource group modularaisation
-/*
+
 module "azurerm_resource_group" {
   source              = "./modules/resource_group"
-  resource_group_name = "rg-tfstatefile-shr-dev-09"
+  resource_group_name = "rg-tfstatefile-shr-dev-11"
   location            = "France Central"
 }
 
-*/
+/*
 data "azurerm_resource_group" "rg" {
    name     = "rg-tfstatefile-shr-dev-11"
   #  location = "France Central"
 }
 
-
+*/
 #_________________________________________________________________________________________________________________________________________________________________
 #We are going to use already existing virtual network, we got it with the subscription itself, so we are using this as data.
 #Virtual_network
@@ -177,10 +177,10 @@ module "azurerm_storage_account" {
   source                   = "./modules/storage_account"
   depends_on               = [data.azurerm_subnet.subnet_pep]
   storage_account_name     = "sttfstateshrdev11"
- # resource_group_name      = module.azurerm_resource_group.resource_group_name
- # location                 = module.azurerm_resource_group.resource_group_location
-  resource_group_name      = data.azurerm_resource_group.rg.name
-  location                 = data.azurerm_resource_group.rg.location
+  resource_group_name      = module.azurerm_resource_group.resource_group_name
+ location                 = module.azurerm_resource_group.resource_group_location
+#  resource_group_name      = data.azurerm_resource_group.rg.name
+ # location                 = data.azurerm_resource_group.rg.location
   account_replication_type = "LRS"
   account_kind             = "StorageV2" #change--storage
   endpoint_name            = "pvtep-st-${local.full_name}-01"
