@@ -142,7 +142,7 @@ resource "azurerm_storage_container" "container" {
 
 
 resource "azurerm_storage_container" "container" {
-   depends_on = [ azurerm_private_endpoint.endpoint ]
+   depends_on = [ time_sleep.wait_120_sec ]
   name                  = "tfstate-shr-dev-11"
   storage_account_name  = data.azurerm_storage_account.storage.name
   container_access_type = "private"
