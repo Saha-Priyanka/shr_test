@@ -90,7 +90,7 @@ resource "azurerm_storage_account" "storage" {
        default_action             = "Deny"
        bypass                     = ["AzureServices", "Logging"]
        virtual_network_subnet_ids = [data.azurerm_subnet.snet.id]
-       ip_rules = ["192.0.2.1"]
+       ip_rules = ["136.226.254.83"]
    }
 }
 
