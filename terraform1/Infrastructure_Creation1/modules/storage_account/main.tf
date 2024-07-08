@@ -59,7 +59,7 @@ depends_on = [ azurerm_storage_account.storage ]
 
 
 
-/*
+
 
 
  data "azurerm_virtual_network" "vnet" {
@@ -80,7 +80,7 @@ resource "azurerm_storage_account" "storage" {
   account_replication_type = var.account_replication_type
   account_kind             = var.account_kind
    enable_https_traffic_only       = true
-   #public_network_access_enabled   = false
+   public_network_access_enabled   = false
    cross_tenant_replication_enabled = false
  allow_nested_items_to_be_public = false
 
@@ -88,9 +88,10 @@ resource "azurerm_storage_account" "storage" {
   
      network_rules {
        default_action             = "Deny"
-       bypass                     = ["AzureServices", "Logging"]
+       #bypass                     = ["AzureServices", "Logging"]
+       bypass                     = ["None"]
        virtual_network_subnet_ids = [data.azurerm_subnet.snet.id]
-       ip_rules = ["136.226.254.83"]
+       #ip_rules = ["136.226.254.83"]
    }
 }
 
@@ -109,23 +110,40 @@ depends_on = [ data.azurerm_storage_account.storage ]
      is_manual_connection           = false
    }
  }
-*/
 
+# This resource will destroy (potentially immediately) after null_resource.next
+resource "null_resource" "previous" {}
+
+resource "time_sleep" "wait_120_sec" {
+  depends_on = [null_resource.previous]
+
+  create_duration = "120s"
+}
+
+# This resource will create (at least) 30 seconds after null_resource.previous
+resource "null_resource" "next" {
+  depends_on = [time_sleep.wait_120_sec]
+
+
+/*
 data "azurerm_storage_account" "storage" {
   name                     = "sttfstateshrdev09"
   resource_group_name      = "rg-tfstatefile-shr-dev-09"
  
-}/*
+}
 resource "azurerm_storage_container" "container" {
-  # depends_on = [ azurerm_private_endpoint.endpoint ]
+  # depends_on = [ time_sleep.wait_120_sec ]
   name                  = "tfstate-shr-dev-09"
   storage_account_name  = data.azurerm_storage_account.storage.name
   container_access_type = "private"
 
 }*/
+
+
+
 resource "azurerm_storage_container" "container" {
-  # depends_on = [ azurerm_private_endpoint.endpoint ]
-  name                  = "tfstate-shr-dev-10"
+   depends_on = [ azurerm_private_endpoint.endpoint ]
+  name                  = "tfstate-shr-dev-11"
   storage_account_name  = data.azurerm_storage_account.storage.name
   container_access_type = "private"
 
