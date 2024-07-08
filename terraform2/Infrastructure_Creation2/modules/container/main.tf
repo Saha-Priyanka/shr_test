@@ -139,7 +139,7 @@ resource "azurerm_storage_container" "container" {
 
 
 data "azurerm_storage_account" "storage" {
-  name                     = "sttfstateshrdev14"
+  name                     = "sttfstateshrdev15"
   resource_group_name      = "rg-tfstatefile-shr-dev-14"
  
 }
