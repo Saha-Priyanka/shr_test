@@ -68,7 +68,8 @@ jobs:
   terraform:
      name: running test
      #timeout-minutes: 10
-     runs-on: self-hosted
+     #runs-on: self-hosted
+     runs-on: windows-latest
      needs: terraform1
   
      env:
