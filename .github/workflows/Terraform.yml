@@ -17,10 +17,10 @@ jobs:
       ARM_SUBSCRIPTION_ID: "${{ secrets.AZURE_AD_SUBSCRIPTION_ID }}"
       ARM_TENANT_ID: "${{ secrets.AZURE_AD_TENANT_ID }}"
       ARM_CLIENT_SECRET: "${{ secrets.AZURE_AD_CLIENT_SECRET }}"
-    defaults:
-      run:
+  # defaults:
+      #run:
         #shell: cmd
-        shell: pwsh
+        #shell: pwsh
 
     steps:
     - name: Checkout
