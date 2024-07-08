@@ -26,7 +26,7 @@ module "azurerm_resource_group" {
 */
 
 data "azurerm_resource_group" "rg" {
-   name     = "rg-tfstatefile-shr-dev-12"
+   name     = "rg-tfstatefile-shr-dev-14"
   #  location = "France Central"
 }
 
@@ -174,9 +174,9 @@ module "key_vault" {
 #functionslayoutfas74f9ae
 #storage_account
 module "azurerm_storage_account" {
-  source                   = "./modules/storage_account"
+source                   = "./modules/container"
   depends_on               = [data.azurerm_subnet.subnet_pep]
-  storage_account_name     = "sttfstateshrdev11"
+  storage_account_name     = "sttfstateshrdev14"
 #  resource_group_name      = module.azurerm_resource_group.resource_group_name
  #location                 = module.azurerm_resource_group.resource_group_location
  resource_group_name      = data.azurerm_resource_group.rg.name
