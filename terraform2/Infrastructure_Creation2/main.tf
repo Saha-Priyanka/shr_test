@@ -72,13 +72,13 @@ data "azurerm_subnet" "subnet_pep" {
 
 #_________________________________________________________________________________________________________________________________________________________________
 
-#functionslayoutfas74f9ae
+
 #storage_account
 module "azurerm_storage_account" {
 source                   = "./modules/container"
- container_name =
-  storage_account_name     = "sttfstateshrdev14"
+ container_name = "tfstate-shr-dev-18"
+  storage_account_name     = "sttfstateshrdev18"
 #  resource_group_name      = module.azurerm_resource_group.resource_group_name
  resource_group_name      = data.azurerm_resource_group.rg.name
-access_type=
+access_type= "private"
 }
