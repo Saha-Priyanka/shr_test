@@ -19,7 +19,7 @@ locals {
 # resource group modularaisation
 module "azurerm_resource_group" {
   source              = "./modules/resource_group"
-  resource_group_name = "rg-tfstatefile-shr-dev-07"
+  resource_group_name = "rg-tfstatefile-shr-dev-08"
   location            = "France Central"
 }
 
@@ -27,8 +27,13 @@ module "azurerm_resource_group" {
 #We are going to use already existing virtual network, we got it with the subscription itself, so we are using this as data.
 #Virtual_network
 
+#data "azurerm_virtual_network" "vnet" {
+  #name                = "vnet-spoke-digglobalwiserinsightsevl001-prod-fc-001"
+  #resource_group_name = "rg-management-prod-fc"
+#}
+
 data "azurerm_virtual_network" "vnet" {
-  name                = "vnet-spoke-digglobalwiserinsightsevl001-prod-fc-001"
+  name                = "vnet-spoke-digalzmigrationdit001-prod-fc-001"
   resource_group_name = "rg-management-prod-fc"
 }
 
@@ -43,12 +48,16 @@ data "azurerm_virtual_network" "vnet" {
 #   address_prefixes     = ["10.242.211.0/26"]
 #   service_endpoints    = ["Microsoft.ContainerRegistry", "Microsoft.KeyVault", "Microsoft.Sql", "Microsoft.Storage", "Microsoft.Web", "Microsoft.AzureActiveDirectory", "Microsoft.AzureCosmosDB", "Microsoft.CognitiveServices", "Microsoft.EventHub", "Microsoft.ServiceBus"]
 # }
+#data "azurerm_subnet" "subnet_pep" {
+  #name                 = "pep-snet"
+ # resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
+  #virtual_network_name = data.azurerm_virtual_network.vnet.name
+#}
 data "azurerm_subnet" "subnet_pep" {
-  name                 = "pep-snet"
+  name                 = "sqltest"
   resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
   virtual_network_name = data.azurerm_virtual_network.vnet.name
 }
-
 # resource "azurerm_subnet" "subnet_asp" {
 #   name                 = "snet-asp-${local.full_name}-02"
 #   resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
@@ -66,11 +75,11 @@ data "azurerm_subnet" "subnet_pep" {
 #   }
 # }
 
-data "azurerm_subnet" "subnet_asp"  {
-  name                 = "snet-asp-layoutfast-dev-02"
-  resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
-  virtual_network_name = data.azurerm_virtual_network.vnet.name
-}
+#data "azurerm_subnet" "subnet_asp"  {
+ # name                 = "snet-asp-layoutfast-dev-02"
+  #resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
+  #virtual_network_name = data.azurerm_virtual_network.vnet.name
+#}
 
 # resource "azurerm_subnet" "subnet_fsp" {
 #   name                 = "snet-fsp-${local.full_name}-03"
@@ -89,11 +98,11 @@ data "azurerm_subnet" "subnet_asp"  {
 #   }
 # }
 
-data "azurerm_subnet" "subnet_fsp"  {
-  name                 = "snet-fsp-layoutfast-dev-03"
-  resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
-  virtual_network_name = data.azurerm_virtual_network.vnet.name
-}
+#data "azurerm_subnet" "subnet_fsp"  {
+ # name                 = "snet-fsp-layoutfast-dev-03"
+  #resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
+  #virtual_network_name = data.azurerm_virtual_network.vnet.name
+#}
 
 
 /*
@@ -159,7 +168,7 @@ module "key_vault" {
 module "azurerm_storage_account" {
   source                   = "./modules/storage_account"
   depends_on               = [data.azurerm_subnet.subnet_pep]
-  storage_account_name     = "sttfstateshrdev07"
+  storage_account_name     = "sttfstateshrdev08"
   resource_group_name      = module.azurerm_resource_group.resource_group_name
   location                 = module.azurerm_resource_group.resource_group_location
   account_replication_type = "LRS"
