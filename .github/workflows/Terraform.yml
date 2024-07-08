@@ -78,9 +78,9 @@ jobs:
       storage_account_name: "${{ secrets.STORAGE_ACCOUNT_NAME }}"
       container_name: "${{ secrets.CONTAINER_NAME }}"
       key: "${{ secrets.KEY }}"
-     defaults:
-      run:
-        shell: cmd
+     #defaults:
+      #run:
+       # shell: cmd
 
      steps:
      - name: Checkout
