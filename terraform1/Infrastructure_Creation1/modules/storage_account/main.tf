@@ -97,7 +97,7 @@ resource "azurerm_storage_account" "storage" {
 
  resource "azurerm_private_endpoint" "endpoint" {
 
-depends_on = [ data.azurerm_storage_account.storage ]
+depends_on = [ azurerm_storage_account.storage ]
   name                = var.endpoint_name
    location            = var.location
    resource_group_name = var.resource_group_name
@@ -105,7 +105,7 @@ depends_on = [ data.azurerm_storage_account.storage ]
 
    private_service_connection {
      name                           = var.service_connection_name
-     private_connection_resource_id = data.azurerm_storage_account.storage.id 
+     private_connection_resource_id = azurerm_storage_account.storage.id 
      subresource_names              = ["blob"]
      is_manual_connection           = false
    }
@@ -144,7 +144,7 @@ resource "azurerm_storage_container" "container" {
 resource "azurerm_storage_container" "container" {
    depends_on = [ time_sleep.wait_120_sec ]
   name                  = "tfstate-shr-dev-11"
-  storage_account_name  = data.azurerm_storage_account.storage.name
+  storage_account_name  = azurerm_storage_account.storage.name
   container_access_type = "private"
 
 }
