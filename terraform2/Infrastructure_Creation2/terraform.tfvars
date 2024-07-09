@@ -1,3 +1,3 @@
-offer_name = "layoutfast"
-environment_name ="test"
+offer_name = "layfast"
+environment_name ="dev"
 
