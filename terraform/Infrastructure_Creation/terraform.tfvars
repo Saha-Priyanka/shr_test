@@ -1,5 +1,5 @@
 offer_name = "lf"
-environment_name ="dev"
+environment_name ="ppr"
 /*
 storage_acc_name = "stlayfastdev01"
 cont_name = "contlayfastdev01"
