@@ -2,7 +2,7 @@
 
 
 data "azurerm_storage_account" "storage" {
-  name                     = "sttfstateshrdev21"
+  name                     = var.storage_account_name
   resource_group_name      = "rg-tfstatefile-shr-dev-14"
  
 }
