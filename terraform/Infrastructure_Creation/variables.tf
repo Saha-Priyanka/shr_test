@@ -14,3 +14,6 @@ type = string
 variable "key"{
 type = string
 }
+variable "rg"{
+type = string
+}
