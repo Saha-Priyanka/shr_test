@@ -19,7 +19,7 @@ locals {
  # resource group modularaisation
  module "azurerm_resource_group" {
    source              = "./modules/resource_group"
-  resource_group_name = "rg-github-shr-01"
+  resource_group_name = "rg-github-shr-02"
    location            = "France Central"
  }
 
@@ -74,7 +74,7 @@ module "key_vault" {
   location                    = module.azurerm_resource_group.resource_group_location 
  # resource_group_name =  data.azurerm_resource_group.rg.name 
  # location = data.azurerm_resource_group.rg.location
-  user_assigned_identity_name = "${local.full_name}-mgdid-kv-18"
+  user_assigned_identity_name = "${local.full_name}-mgdid-kv-19"
   soft_delete_retention_days  = "90"
   sku_name                    = "standard"
   subnet_id                   = data.azurerm_subnet.subnet_pep.id
@@ -89,13 +89,13 @@ module "key_vault" {
   certificate_permissions = [
     "Get", "Update", "GetIssuers", "Import", "List", "ListIssuers", "Backup", "Create", "Delete", "DeleteIssuers", "ManageContacts", "ManageIssuers", "Recover", "Restore", "SetIssuers",
   ]
-  endpoint_name_kv                   = "pvtep-kv-github-shr-18"
+  endpoint_name_kv                   = "pvtep-kv-github-shr-19"
   purge_protection_enabled           = false
   public_network_access_enabled      = false
   enabled_for_disk_encryption        = true
   is_manual_connection               = false
   sub_resource_name                  = ["vault"]
-  private_service_connection_name_kv = "pvtsc-kv-github-shr-18"
+  private_service_connection_name_kv = "pvtsc-kv-github-shr-19"
   net_acl_default_action             = "Deny"
   net_acl_bypass                     = "AzureServices"
 }
