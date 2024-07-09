@@ -20,7 +20,7 @@ locals {
 
 module "azurerm_resource_group" {
   source              = "./modules/resource_group"
-  resource_group_name = "rg-${local.full_name}-14"
+  resource_group_name = "rg-${local.full_name}-14" #"rg-layfast-ppr-14"
   location            = "France Central"
 }
 /*
