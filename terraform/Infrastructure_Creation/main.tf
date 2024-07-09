@@ -89,13 +89,13 @@ module "key_vault" {
   certificate_permissions = [
     "Get", "Update", "GetIssuers", "Import", "List", "ListIssuers", "Backup", "Create", "Delete", "DeleteIssuers", "ManageContacts", "ManageIssuers", "Recover", "Restore", "SetIssuers",
   ]
-  endpoint_name_kv                   = "pvtep-kv-github-shr-25"
+  endpoint_name_kv                   = "pvtep-kv-${local.full_name}-25"
   purge_protection_enabled           = false
   public_network_access_enabled      = false
   enabled_for_disk_encryption        = true
   is_manual_connection               = false
   sub_resource_name                  = ["vault"]
-  private_service_connection_name_kv = "pvtsc-kv-github-shr-25"
+  private_service_connection_name_kv = "pvtsc-kv-${local.full_name}-25"
   net_acl_default_action             = "Deny"
   net_acl_bypass                     = "AzureServices"
 }
