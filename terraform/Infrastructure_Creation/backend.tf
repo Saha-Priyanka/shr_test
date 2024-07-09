@@ -1,7 +1,7 @@
 terraform {
     # required_version = "0.14.8"
     backend "azurerm" {
-        resource_group_name = "rg-tfstatefile-shr-dev-14"
+        resource_group_name = "rg-layfast-ppr-14"
         storage_account_name = "stlayfastppr01"
         container_name = "contlayfastppr01"
         key = "pprterraform.tfstate"
