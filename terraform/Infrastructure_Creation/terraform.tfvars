@@ -1,4 +1,4 @@
-offer_name = "layfast"
+offer_name = "lf"
 environment_name ="dev"
 /*
 storage_acc_name = "stlayfastdev01"
