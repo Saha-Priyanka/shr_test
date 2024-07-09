@@ -1,11 +1,6 @@
 
 
 
-data "azurerm_storage_account" "storage" {
-  name                     = var.storage_account_name
-  resource_group_name      = "rg-tfstatefile-shr-dev-14"
- 
-}
 
 
 
