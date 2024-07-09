@@ -74,7 +74,7 @@ data "azurerm_subnet" "subnet_pep" {
 
 data "azurerm_storage_account" "storage" {
   name                     = "st${local.full_name1}01"
-  resource_group_name      = "rg-tfstatefile-shr-dev-14"
+  resource_group_name      = data.azurerm_resource_group.rg.name
  
 }
 
