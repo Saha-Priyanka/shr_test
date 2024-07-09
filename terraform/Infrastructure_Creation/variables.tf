@@ -11,3 +11,6 @@ type = string
 variable "cont_name"{
 type = string
 }
+variable "key"{
+type = string
+}
