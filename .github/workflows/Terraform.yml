@@ -3,7 +3,7 @@ on:
   push:
     branches: [ "main" ]
    # branches: none
-  pull_request:  
+  pull_request: 
 
 permissions:
   id-token: write
