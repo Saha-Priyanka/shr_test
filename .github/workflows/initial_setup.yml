@@ -70,6 +70,7 @@ jobs:
   terraform: 
     name: 'container_creation'
     runs-on: self-hosted
+    environment: dev
     #runs-on: windows-latest
     needs: initial_setup
     env:
