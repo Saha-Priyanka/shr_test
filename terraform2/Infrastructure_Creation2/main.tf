@@ -76,8 +76,8 @@ data "azurerm_subnet" "subnet_pep" {
 #storage_account_container
 module "azurerm_container" {
 source                   = "./modules/container"
- container_name = "tfstate-shr-dev-21"
-  storage_account_name     = "sttfstateshrdev21"
+ container_name = "cont${local.full_name}01" #contlayfastdev01
+  storage_account_name     = 
 #  resource_group_name      = module.azurerm_resource_group.resource_group_name
  resource_group_name      = data.azurerm_resource_group.rg.name
 access_type= "private"
