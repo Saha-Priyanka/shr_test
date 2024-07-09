@@ -73,7 +73,7 @@ data "azurerm_subnet" "subnet_pep" {
 module "azurerm_storage_account" {
   source                   = "./modules/storage_account"
   depends_on               = [data.azurerm_subnet.subnet_pep]
-  storage_account_name     = "sttfstateshrdev21"
+  storage_account_name     = "st${local.full_name1}01" #stlayfastdev01
 resource_group_name      = module.azurerm_resource_group.resource_group_name
 location                 = module.azurerm_resource_group.resource_group_location
 # resource_group_name      = data.azurerm_resource_group.rg.name
