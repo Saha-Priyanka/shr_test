@@ -80,7 +80,7 @@ jobs:
       ARM_SUBSCRIPTION_ID: "${{ secrets.AZURE_AD_SUBSCRIPTION_ID }}"
       ARM_TENANT_ID: "${{ secrets.AZURE_AD_TENANT_ID }}"
       ARM_CLIENT_SECRET: "${{ secrets.AZURE_AD_CLIENT_SECRET }}"
-      storage_account_name: "${{ secrets.STORAGE_ACCOUNT_NAME }}"
+     # storage_account_name: "${{ secrets.STORAGE_ACCOUNT_NAME }}"
       container_name: "${{ secrets.CONTAINER_NAME }}"
       key: "${{ secrets.KEY }}"
      #defaults:
@@ -92,14 +92,14 @@ jobs:
        uses: actions/checkout@v2
        with:
         token: ${{secrets.GITHUB_TOKEN}}
-    # - name: Replace tokens
-     #  uses: cschleiden/replace-tokens@v1.3
-      # with:
-       # tokenPrefix: '{'
-        #tokenSuffix: '}'
-        #files: '["**/backend.tf"]'
-       #env :  
-       # storage_account_name : "${{ vars.STORAGE_ACCOUNT_NAME }}"
+     - name: Replace tokens
+       uses: cschleiden/replace-tokens@v1.3
+       with:
+        tokenPrefix: '{'
+        tokenSuffix: '}'
+        files: '["**/backend.tf"]'
+       env :  
+        storage_account_name : "${{ vars.STORAGE_ACCOUNT_NAME }}"
      # - name: List Files in Terraform Directory
      #   run: |
      #    ls -R ./terraform
