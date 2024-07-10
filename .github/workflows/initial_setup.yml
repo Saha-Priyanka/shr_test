@@ -104,6 +104,19 @@ jobs:
       uses: actions/checkout@v2
       with:
         token: ${{secrets.GITHUB_TOKEN}}
+    - name: Replace tokens
+      uses: cschleiden/replace-tokens@v1.3
+      with:
+        tokenPrefix: '__'
+        tokenSuffix: '__'
+        files: '["**/terraform.tfvars"]'
+      env :  
+        environment_name : "${{ vars.ENVIRONMENT_NAME }}"
+    - name : printing the tf file
+      run : |
+         cat terraform/Infrastructure_Creation/terraform.tfvars
+         cat terraform1/Infrastructure_Creation1/terraform.tfvars
+         cat terraform2/Infrastructure_Creation2/terraform.tfvars
     - name: Terraform Format
       run: |
         terraform fmt -check ./terraform2
