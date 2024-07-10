@@ -1,3 +1,3 @@
 offer_name = "layfast"
-environment_name ="ppr"
+environment_name = "__environment_name__"  #"ppr"
 
