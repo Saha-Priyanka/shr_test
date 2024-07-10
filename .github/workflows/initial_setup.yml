@@ -43,6 +43,8 @@ jobs:
     - name : printing the tf file
       run : |
          cat terraform/Infrastructure_Creation/terraform.tfvars
+         cat terraform1/Infrastructure_Creation1/terraform.tfvars
+         cat terraform2/Infrastructure_Creation2/terraform.tfvars
     - name: Terraform Format
       run: |
         terraform fmt -check ./terraform1
