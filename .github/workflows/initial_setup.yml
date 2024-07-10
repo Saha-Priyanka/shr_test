@@ -14,8 +14,8 @@ jobs:
   initial_setup: 
     name: 'initial_setup'
     runs-on: self-hosted
-  #  environment: dev
-    environment: ppr
+    environment: dev
+  #  environment: ppr
     #runs-on: windows-latest
     env:
       ARM_CLIENT_ID: "${{ secrets.AZURE_AD_CLIENT_ID }}"
