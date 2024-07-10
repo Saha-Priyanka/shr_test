@@ -101,6 +101,9 @@ jobs:
         files: '["**/backend.tf"]'
        env :  
         storage_acc_name : "${{ vars.STORAGE_ACC_NAME }}"
+        rg_name : "${{ vars.RG_NAME }}"
+        cont_name : "${{ vars.CONT_NAME }}"
+        tfstate_file : "${{ vars.TFSTATE_FILE }}"
      - name : printing the tf file
        run : |
          cat terraform/Infrastructure_Creation/backend.tf
