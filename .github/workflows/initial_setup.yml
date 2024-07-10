@@ -1,5 +1,6 @@
 name: 'terraform'
 on: 
+  workflow_dispatch:
   push:
     branches: none
    # branches: [ "main" ]
