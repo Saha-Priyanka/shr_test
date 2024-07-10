@@ -97,9 +97,17 @@ jobs:
        with:
         tokenPrefix: '{'
         tokenSuffix: '}'
-        files: '["**/backend.tf"]'
+        files: '["**/backend.conf"]'
        env :  
         storage_account_name : "${{ vars.STORAGE_ACCOUNT_NAME }}"
+     - name: Replace tokens1
+       uses: cschleiden/replace-tokens@v1.3
+       with:
+        tokenPrefix: '{'
+        tokenSuffix: '}'
+        files:  '["**/test.txt"]'
+       env:
+        change : "${{ vars.CHANGE }}"
      # - name: List Files in Terraform Directory
      #   run: |
      #    ls -R ./terraform
