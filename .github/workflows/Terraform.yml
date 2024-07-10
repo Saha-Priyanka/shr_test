@@ -99,7 +99,7 @@ jobs:
         tokenSuffix: '}'
         files: '["**/backend.tf"]'
        env :  
-        storage_account_name : 
+        storage_account_name : "${{ var.STORAGE_ACCOUNT_NAME }}"
      # - name: List Files in Terraform Directory
      #   run: |
      #    ls -R ./terraform
