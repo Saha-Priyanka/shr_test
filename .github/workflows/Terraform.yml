@@ -145,8 +145,9 @@ jobs:
      - name: terraform init
        run: |
          cd ./terraform/Infrastructure_Creation
-         terraform init -backend-config="backend.conf"
-        # terraform init -reconfigure 
+         terraform init -reconfigure 
+       #  terraform init -backend-config="backend.conf"
+         
      # - name: Terraform Plan
      #   uses: hashicorp//terraform-github-actions@master
      #   with:
