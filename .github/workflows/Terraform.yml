@@ -92,7 +92,14 @@ jobs:
        uses: actions/checkout@v2
        with:
         token: ${{secrets.GITHUB_TOKEN}}
-
+     - name: Replace tokens
+       uses: cschleiden/replace-tokens@v1.3
+       with:
+        tokenPrefix: '{'
+        tokenSuffix: '}'
+        files: '["**/backend.tf"]'
+       env :  
+        storage_account_name : 
      # - name: List Files in Terraform Directory
      #   run: |
      #    ls -R ./terraform
