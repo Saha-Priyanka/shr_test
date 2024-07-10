@@ -40,6 +40,7 @@ jobs:
         files: '["**/terraform.tfvars"]'
       env :  
         environment_name : "${{ vars.ENVIRONMENT_NAME }}"
+        offer_name : "${{ vars.OFFER_NAME }}"
     - name : printing the tf file
       run : |
          cat terraform/Infrastructure_Creation/terraform.tfvars
@@ -112,6 +113,7 @@ jobs:
         files: '["**/terraform.tfvars"]'
       env :  
         environment_name : "${{ vars.ENVIRONMENT_NAME }}"
+        offer_name : "${{ vars.OFFER_NAME }}"
     - name : printing the tf file
       run : |
          cat terraform/Infrastructure_Creation/terraform.tfvars
