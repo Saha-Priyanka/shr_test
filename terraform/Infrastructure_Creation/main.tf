@@ -82,7 +82,7 @@ data "azurerm_subnet" "subnet_pep" {
 module "key_vault" {
   source                      = "./modules/Key_vault"
   depends_on                  = [data.azurerm_subnet.subnet_pep]
-  key_vault_name              = "kv-${local.full_name}-25"
+  key_vault_name              = "kv-${local.full_name}-26"
    resource_group_name         = module.azurerm_resource_group.resource_group_name
   location                    = module.azurerm_resource_group.resource_group_location 
  # resource_group_name =  data.azurerm_resource_group.rg.name 
