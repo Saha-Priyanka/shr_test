@@ -100,6 +100,9 @@ jobs:
         files: '["**/backend.conf"]'
        env :  
         storage_account_name : "${{ vars.STORAGE_ACCOUNT_NAME }}"
+     - name : printing the tf file
+       run : |
+         cat terraform/Infrastructure_Creation/backend.conf
      - name: Replace tokens1
        uses: cschleiden/replace-tokens@v1.3
        with:
@@ -142,7 +145,7 @@ jobs:
      - name: terraform init
        run: |
          cd ./terraform/Infrastructure_Creation
-         terraform init -reconfigure
+         terraform init -reconfigure -backend-config=backend.conf
      # - name: Terraform Plan
      #   uses: hashicorp//terraform-github-actions@master
      #   with:
