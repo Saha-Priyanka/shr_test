@@ -71,8 +71,8 @@ jobs:
      name: infra creation
      #timeout-minutes: 10
      runs-on: self-hosted
-  #   environment: dev
-     environment: ppr
+     environment: dev
+   #  environment: ppr
      #runs-on: windows-latest
     # needs: terraform1
   
@@ -104,20 +104,33 @@ jobs:
         rg_name : "${{ vars.RG_NAME }}"
         cont_name : "${{ vars.CONT_NAME }}"
         tfstate_file : "${{ vars.TFSTATE_FILE }}"
-     - name : printing the tf file
-       run : |
-         cat terraform/Infrastructure_Creation/backend.tf
      - name: Replace tokens1
        uses: cschleiden/replace-tokens@v1.3
        with:
-        tokenPrefix: '{'
-        tokenSuffix: '}'
-        files:  '["**/test.txt"]'
-       env:
-        change : "${{ vars.CHANGE }}"
-     - name : printing the file
+        tokenPrefix: '__'
+        tokenSuffix: '__'
+        files: '["**/terraform.tfvars"]'
+       env :  
+        environment_name : "${{ vars.ENVIRONMENT_NAME }}"
+     - name : printing the tf file
        run : |
-         cat terraform/Infrastructure_Creation/test.txt
+         cat terraform/Infrastructure_Creation/terraform.tfvars
+         cat terraform1/Infrastructure_Creation1/terraform.tfvars
+         cat terraform2/Infrastructure_Creation2/terraform.tfvars
+     - name : printing the tf file
+       run : |
+         cat terraform/Infrastructure_Creation/backend.tf
+   #  - name: Replace tokens1
+    #   uses: cschleiden/replace-tokens@v1.3
+     #  with:
+      #  tokenPrefix: '{'
+       # tokenSuffix: '}'
+        #files:  '["**/test.txt"]'
+       #env:
+       # change : "${{ vars.CHANGE }}"
+     #- name : printing the file
+       #run : |
+      #   cat terraform/Infrastructure_Creation/test.txt
      # - name: List Files in Terraform Directory
      #   run: |
      #    ls -R ./terraform
