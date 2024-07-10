@@ -92,17 +92,17 @@ jobs:
        uses: actions/checkout@v2
        with:
         token: ${{secrets.GITHUB_TOKEN}}
-   #  - name: Replace tokens
-    #   uses: cschleiden/replace-tokens@v1.3
-     #  with:
-      #  tokenPrefix: '{'
-       # tokenSuffix: '}'
-        #files: '["**/backend.conf"]'
-       #env :  
-        #storage_account_name : "${{ vars.STORAGE_ACCOUNT_NAME }}"
+     - name: Replace tokens
+       uses: cschleiden/replace-tokens@v1.3
+       with:
+        tokenPrefix: '__'
+        tokenSuffix: '__'
+        files: '["**/backend.tf"]'
+       env :  
+        storage_acc_name : "${{ vars.STORAGE_ACC_NAME }}"
      - name : printing the tf file
        run : |
-         cat terraform/Infrastructure_Creation/backend.conf
+         cat terraform/Infrastructure_Creation/backend.tf
      - name: Replace tokens1
        uses: cschleiden/replace-tokens@v1.3
        with:
