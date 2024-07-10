@@ -110,7 +110,7 @@ jobs:
         change : "${{ vars.CHANGE }}"
      - name : printing the file
        run : |
-         cat '["**/test.txt"]'
+         cat terraform/Infrastructure_Creation/test.txt
      # - name: List Files in Terraform Directory
      #   run: |
      #    ls -R ./terraform
