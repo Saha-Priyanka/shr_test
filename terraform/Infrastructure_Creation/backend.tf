@@ -1,8 +1,8 @@
-/*terraform {
+terraform {
     # required_version = "0.14.8"
     backend "azurerm" {
         resource_group_name = "rg-layfast-ppr-14"
-        storage_account_name = {storage_account_name} #"stlayfastppr01"
+        storage_account_name = "stlayfastppr01"  # {storage_account_name} 
         container_name = "contlayfastppr01"
         key = "pprterraform.tfstate"
        # arm_subscription_id = "793729a4-a745-4e4f-8b8d-88bda288a86a"
@@ -10,4 +10,4 @@
         
     }
 } 
-*/
+
