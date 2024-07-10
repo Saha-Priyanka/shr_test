@@ -21,7 +21,7 @@ jobs:
   #     ARM_CLIENT_SECRET: "${{ secrets.AZURE_AD_CLIENT_SECRET }}"
   # # defaults:
   #     #run:
-  #       #shell: cmd
+  #       #shell: cmd 
   #       #shell: pwsh
 
   #   steps:
