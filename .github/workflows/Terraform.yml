@@ -2,8 +2,8 @@ name: 'terraform'
 on:
   workflow_dispatch:
   push:
-    branches: [ "main" ]
- #   branches: none 
+   # branches: [ "main" ]
+    branches: none 
   pull_request: 
  
 permissions:
